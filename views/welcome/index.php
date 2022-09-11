@@ -1,4 +1,9 @@
-
+<?php
+use yii\widgets\ActiveForm;
+use yii\widgets\Pjax;
+use app\widgets\Alert;
+use yii\helpers\Html;
+?>
     <div class="history">
         <h1>ИСТОРИЯ КОМПАНИИ</h1>
         <div class="history__link"><a href="<?= \yii\helpers\Url::home()?>">Главная </a><a href="#">> О Нас</a></div>
@@ -21,19 +26,19 @@
                 Мы строим надежные решения на годы, выстраивая надежные отношения на десятилетия.</p>
             <div class="whyme__icon">
                 <div class="tex">
-                    <?=\yii\helpers\Html::img('@web/images/Vector.png') ?>
+                    <?=Html::img('@web/images/Vector.png') ?>
                     <p>Передовые технологии</p>
                 </div>
                 <div class="specialists">
-                   <?= \yii\helpers\Html::img('@web/images/vector2.png')?>
+                   <?= Html::img('@web/images/vector2.png')?>
                     <p>Выполнение в точный срок</p>
                 </div>
                 <div class="time">
-                    <?= \yii\helpers\Html::img('@web/images/vector3.png')?>
+                    <?= Html::img('@web/images/vector3.png')?>
                     <p>Опытные специалисты</p>
                 </div>
                 <div class="solutions">
-                    <?= \yii\helpers\Html::img('@web/images/vector4.png')?>
+                    <?= Html::img('@web/images/vector4.png')?>
                     <p>Оптимальные решения</p>
                 </div>
             </div>
@@ -57,3 +62,42 @@
             <span>Электрослесари</span>
         </div>
     </div>
+<div class="container">
+    <row>
+        <hr>
+        <h2>У вас появились вопросы?</h2>
+        <p>Оставьте заявку для нашего специалиста. Он расскажет подробнее о нас,
+            ответит на все интересующие вас вопросы и подскажет оптимальное решение именно для
+            вашей задачи.
+        </p>
+    </row>
+     <div class="row">
+         <?php
+         Pjax::begin(); ?>
+         <?= Alert::widget() ?>
+         <?php
+         $form = ActiveForm::begin(
+             [
+                 'id' => 'login-form',
+                 'enableClientValidation' =>true,
+                 'options'=>[
+                     'class' => 'form-horizontal',
+                     'data' =>['pjax' => true],
+                 ]
+             ]);?>
+
+         <?= $form->field($model, 'name')->textInput(['placeholder'=>'Ваше имя','style'=>'margin-bottom:15px'])?>
+         <?= $form->field($model, 'text')->textarea(['placeholder' =>'Суть вопроса','style'=>'margin-bottom:15px'])?>
+         <?= $form->field($model, 'email')->textInput(['placeholder'=>'example@mail.ru','style'=>'margin-bottom:15px'])?>
+         <div class="form-group">
+             <div class="col-lg-offset-1 col-lg-11">
+                 <?= \yii\helpers\Html::submitButton('Отправить',[
+                     'class' => 'btn btn-primary ',
+                     'style' =>'margin:20px 0 20px 0',
+                 ])?>
+             </div>
+         </div>
+
+         <?php ActiveForm::end(); Pjax::end();?>
+     </div>
+</div>
