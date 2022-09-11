@@ -1,5 +1,10 @@
 <?php
+
+use app\widgets\Alert;
 use yii\helpers\Html;
+use yii\widgets\Breadcrumbs;
+use yii\helpers\Url;
+
 $this->registerCsrfMetaTags();
 \app\assets\AppAsset::register($this);
 ?>
@@ -14,28 +19,34 @@ $this->registerCsrfMetaTags();
     <title><?= Html::encode($this->title)?></title>
     <?php $this->head()?>
 </head>
-<body>
+<body class="d-flex flex-column h-100">
 <?php $this->beginBody()?>
 <div class="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><?= Yii::$app->name?></a>
+            <a class="navbar-brand" href="<?= Url::to('../index')?>"><?= Yii::$app->name?></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Переключатель навигации">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">О компании</a>
+                    <a class="nav-link active" aria-current="page" href="<?= Url::to('../category')?>">Категории</a>
                 </li>
                 <li class="nav-item" style="padding-right: 100px">
-                    <a class="nav-link" href="#">Прайс-лист</a>
+                    <a class="nav-link" href="<?= Url::to('../product')?>">Все товары</a>
                 </li>
 
             </ul>
         </div>
     </nav>
 </div>
-    <?=$content?>
+
+<main id="main" class="flex-shrink-0" role="main">
+    <div class="container p-0">
+        <?= Alert::widget() ?>
+        <?= $content ?>
+    </div>
+</main>
 <footer id="footer" class="mt-auto py-3 bg-light">
     <div class="container">
         <div class="row text-muted">

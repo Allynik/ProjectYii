@@ -48,6 +48,10 @@ $config = [
             'showScriptName' => false,
             'enableStrictParsing' => false,
             'rules' => [
+                'dbpage/<id:\d+>' => 'dbpage/product',
+                'category' => 'dbpage/category',
+                'product' => 'dbpage/product',
+                'index' => 'welcome/index'
             ],
         ],
 
