@@ -4,10 +4,12 @@ use yii\widgets\Pjax;
 use app\widgets\Alert;
 use yii\helpers\Html;
 ?>
-    <div class="history">
-        <h1>ИСТОРИЯ КОМПАНИИ</h1>
-        <div class="history__link"><a href="<?= \yii\helpers\Url::home()?>">Главная </a><a href="#">> О Нас</a></div>
-    </div>
+<div class="history">
+    <h1>ИСТОРИЯ КОМПАНИИ</h1>
+    <div class="history__link"><a href="<?= \yii\helpers\Url::home()?>">Главная </a><a href="#">> О Нас</a></div>
+</div>
+<div class="container">
+
     <div class="his">
         <div class="his__text">
             <h2>История</h2>
@@ -30,7 +32,7 @@ use yii\helpers\Html;
                     <p>Передовые технологии</p>
                 </div>
                 <div class="specialists">
-                   <?= Html::img('@web/images/vector2.png')?>
+                    <?= Html::img('@web/images/vector2.png')?>
                     <p>Выполнение в точный срок</p>
                 </div>
                 <div class="time">
@@ -62,6 +64,8 @@ use yii\helpers\Html;
             <span>Электрослесари</span>
         </div>
     </div>
+</div>
+
 <div class="container">
     <row>
         <hr>

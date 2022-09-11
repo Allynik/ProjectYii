@@ -27,17 +27,23 @@ $this->registerCsrfMetaTags();
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">О компании</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" style="padding-right: 100px">
                     <a class="nav-link" href="#">Прайс-лист</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Контакты</a>
-                </li>
+
             </ul>
         </div>
     </nav>
 </div>
     <?=$content?>
+<footer id="footer" class="mt-auto py-3 bg-light">
+    <div class="container">
+        <div class="row text-muted">
+            <div class="col-md-6 text-center text-md-start">&copy; <?=Yii::$app->name ?> <?= date('Y') ?></div>
+            <div class="col-md-6 text-center text-md-end"><?= Yii::powered() ?></div>
+        </div>
+    </div>
+</footer>
 <?php $this->endBody()?>
 </body>
 </html>
