@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Category;
+use app\models\Product;
 
 class DbpageController extends AppController
 {
@@ -18,8 +19,9 @@ class DbpageController extends AppController
     public function actionProduct($id = null)
     {
         $this->layout = 'welcome';
-        $this->view->title = 'Главная страница';
-        return $this->render('product');
+        $this->view->title = 'Страница товаров';
+        $id != null ?  $product = Product::find()->where(['category_id' => $id])->asArray()->all() : $product = Product::find()->asArray()->all();
+        return $this->render('product',compact('product'));
     }
 
 }
