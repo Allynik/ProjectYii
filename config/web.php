@@ -51,7 +51,8 @@ $config = [
                 'dbpage/<id:\d+>' => 'dbpage/product',
                 'category' => 'dbpage/category',
                 'product' => 'dbpage/product',
-                'index' => 'welcome/index'
+                'index' => 'welcome/index',
+                'test' => 'adm/test'
             ],
         ],
 
