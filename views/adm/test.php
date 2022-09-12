@@ -37,7 +37,7 @@ use yii\widgets\Pjax;
         ]);?>
 
     <?= $form->field($newcat, 'title')->textInput(['placeholder'=>'Название категории','style'=>'margin-bottom:15px'])?>
-    <?= $form->field($newcat, 'image')->textInput(['placeholder' =>'Картинка','style'=>'margin-bottom:15px'])?>
+    <?= $form->field($newcat, 'image')->fileInput()?>
     <div class="form-group">
         <div class="col-lg-offset-1 col-lg-11">
             <?= Html::submitButton('Сохранить',[
@@ -73,6 +73,7 @@ use yii\widgets\Pjax;
             'enableClientValidation' =>true,
             'options'=>[
                 'class' => 'form-horizontal',
+                'enctype' => 'multipart/form-data',
 
             ]
         ]);?>
@@ -80,7 +81,7 @@ use yii\widgets\Pjax;
     <?= $form->field($newprod, 'title')->textInput(['placeholder'=>'Название товара','style'=>'margin-bottom:15px'])?>
     <?= $form->field($newprod, 'description')->textarea(['placeholder' =>'Описание','style'=>'margin-bottom:15px'])?>
     <?= $form->field($newprod, 'price')->textInput(['placeholder' =>'Цена','style'=>'margin-bottom:15px'])?>
-    <?= $form->field($newprod, 'image')->textarea(['placeholder' =>'Описание','style'=>'margin-bottom:15px'])?>
+    <?= $form->field($newprod, 'image')->fileInput()?>
     <?= $form->field($newprod, 'category_id')->dropDownList(\app\models\Category::find()->select(['title','id'])->indexBy('id')->column(),['prompt'=>'Выберите категорию']);?>
     <div class="form-group">
         <div class="col-lg-offset-1 col-lg-11">

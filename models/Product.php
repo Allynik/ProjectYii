@@ -3,10 +3,10 @@
 namespace app\models;
 
 use yii\db\ActiveRecord;
+use yii\web\UploadedFile;
 
 class Product extends ActiveRecord
 {
-
     public static function tableName()
     {
         return 'service';
@@ -25,6 +25,7 @@ class Product extends ActiveRecord
             [['title','image', 'description', 'price', 'category_id'], 'required'],
             [['title'], 'string', 'max' =>100],
             [['price'], 'string', 'min' => 1],
+            [['image'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
         ];
     }
     public function attributeLabels()
