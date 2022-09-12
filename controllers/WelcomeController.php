@@ -3,7 +3,6 @@
 namespace app\controllers;
 
 use app\models\Application;
-use app\models\ContForm;
 
 class WelcomeController extends AppController
 {

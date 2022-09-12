@@ -7,7 +7,6 @@ use app\models\Product;
 
 class AdmController extends AppController
 {
-
     public function actionTest()
     {
         $this->layout = 'welcome';
@@ -18,12 +17,12 @@ class AdmController extends AppController
         $newprod = new Product();
         if($newprod->load(\Yii::$app->request->post()) && $newprod->validate() && $newprod->save()){
             \Yii::$app->session->setFlash('success','Создано!');
+            $this->refresh();
         }
         if($newcat->load(\Yii::$app->request->post()) && $newcat->validate() && $newcat->save()){
             \Yii::$app->session->setFlash('success','Создано!');
+            $this->refresh();
         }
-
         return $this->render('test', compact('category','product','newcat','newprod'));
     }
-
 }
