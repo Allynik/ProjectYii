@@ -16,7 +16,7 @@ class DbpageController extends AppController
         return $this->render('category',compact('cat'));
     }
 
-    public function actionProduct($id = null, $product = null)
+    public function actionProduct($id = null)
     {
         $this->layout = 'welcome';
         $this->view->title = 'Страница товаров';
@@ -28,7 +28,7 @@ class DbpageController extends AppController
                     'pageSize' => 3
                 ],
             ]);
-        return $this->render('product',compact('product','dataProvider'));
+        return $this->render('product',compact('dataProvider'));
     }
 
 }
