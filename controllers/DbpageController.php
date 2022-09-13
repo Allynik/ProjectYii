@@ -12,8 +12,11 @@ class DbpageController extends AppController
     {
         $this->layout = 'welcome';
         $this->view->title = 'Страница категорий';
-        $cat = Category::find()->asArray()->all();
-        return $this->render('category',compact('cat'));
+        $dataProvider = new ActiveDataProvider([
+            'query' => Category::find(),
+        ]);
+//        $cat = Category::find()->asArray()->all();
+        return $this->render('category',compact('dataProvider'));
     }
 
     public function actionProduct($id = null)
