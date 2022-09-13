@@ -7,7 +7,13 @@
     <?=
     GridView::widget([
             'dataProvider' => $dataProvider,
-
+            'columns' => [
+                    'id',
+                    'title',
+                    'description',
+                    'price',
+                    'category_id'
+            ],
     ]);
     ?>
 </div>
