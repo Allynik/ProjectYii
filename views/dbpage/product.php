@@ -12,7 +12,8 @@
                     'title',
                     'description',
                     'price',
-                    'category_id'
+                    'category_id',
+                ['class' => 'yii\grid\ActionColumn'],
             ],
     ]);
     ?>
