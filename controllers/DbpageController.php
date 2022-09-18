@@ -34,4 +34,18 @@ class DbpageController extends AppController
         return $this->render('product',compact('dataProvider'));
     }
 
+    public function actionCatview($id)
+    {
+        $this->layout = 'welcome';
+        $this->view->title = 'Детальный обзор';
+        $model = Category::findOne($id);
+        return $this->render('catview',compact('model'));
+    }
+    public function actionProdview($id)
+    {
+        $this->layout = 'welcome';
+        $this->view->title = 'Детальный обзор';
+        $model = Product::findOne($id);
+        return $this->render('prodview',compact('model'));
+    }
 }

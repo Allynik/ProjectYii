@@ -12,7 +12,10 @@ use yii\helpers\Url;
         'columns' => [
             'id',
             'title',
-            ['class' => 'yii\grid\ActionColumn']
+            ['class' => 'yii\grid\ActionColumn',
+            'urlCreator' => function ($action, $dataProvider, $key, $index) {
+                return Url::to(['dbpage/'.'catview', 'id' => $dataProvider->id]);
+            }],
         ],
     ]);
     ?>

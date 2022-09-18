@@ -3,6 +3,8 @@
     <?php
     use yii\helpers\Html;
     use yii\grid\GridView;
+    use yii\helpers\Url;
+
     ?>
     <?=
     GridView::widget([
@@ -13,7 +15,12 @@
                     'description',
                     'price',
                     'category_id',
-                ['class' => 'yii\grid\ActionColumn'],
+                ['class' => 'yii\grid\ActionColumn',
+                    'urlCreator' => function ($action, $dataProvider, $key, $index) {
+                        return Url::to(['dbpage/'.'prodview', 'id' => $dataProvider->id]);
+                    }
+
+                ],
             ],
     ]);
     ?>
