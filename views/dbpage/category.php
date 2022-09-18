@@ -12,6 +12,7 @@ use yii\helpers\Url;
         'columns' => [
             'id',
             'title',
+            ['class' => 'yii\grid\ActionColumn']
         ],
     ]);
     ?>
